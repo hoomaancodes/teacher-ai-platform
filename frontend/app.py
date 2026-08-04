@@ -80,6 +80,9 @@ if "processing" not in st.session_state:
 if "completed" not in st.session_state:
     st.session_state.completed = False
 
+if "published_documents" not in st.session_state:
+    st.session_state.published_documents = None
+
 render_uploader()
 
 st.divider() #divider
