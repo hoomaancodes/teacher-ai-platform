@@ -7,7 +7,7 @@ Transform educational PDFs into structured lesson plans, classroom resources, as
 ## 🌐 Live Demo
 
 **Teacher AI Platform:**  
-[Teacher-AI-Platform](https://your-deployed-app-url)
+[teacher-ai-platformmm.streamlit.app](https://teacher-ai-platformmm.streamlit.app/)
 
 ---
 
