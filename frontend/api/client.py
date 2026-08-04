@@ -65,3 +65,13 @@ def get_result(job_id):
     response.raise_for_status()
 
     return response.json()
+
+def download_file(job_id, file_type):
+
+    response = requests.get(
+        f"{API_URL}/download/{job_id}/{file_type}"
+    )
+
+    response.raise_for_status()
+
+    return response.content

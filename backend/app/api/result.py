@@ -27,9 +27,22 @@ async def get_result(job_id: str):
     ) as f:
         teacher_package = json.load(f)
 
+    lesson_path = OUTPUT_DIR / f"{job_id}_LessonPlan.md"
+    teacher_path = OUTPUT_DIR / f"{job_id}_TeacherGuide.md" 
+    assessment_path = OUTPUT_DIR / f"{job_id}_Assessment.md"
+
+    lesson_plan = (OUTPUT_DIR / f"{job_id}_LessonPlan.md").read_text(encoding="utf-8") if lesson_path.exists() else ""
+    teacher_guide = (OUTPUT_DIR / f"{job_id}_TeacherGuide.md").read_text(encoding="utf-8") if teacher_path.exists() else ""
+    assessment = (OUTPUT_DIR / f"{job_id}_Assessment.md").read_text(encoding="utf-8") if assessment_path.exists() else ""
+
     return {
         "job_id": job_id,
         "teacher_package": teacher_package,
+        "published_documents": {
+            "lesson_plan": lesson_plan,
+            "teacher_guide": teacher_guide,
+            "assessment": assessment
+        },
         "files": {
             "json": f"{job_id}_TeacherKnowledgePackage.json",
             "lesson_plan": f"{job_id}_LessonPlan.md",

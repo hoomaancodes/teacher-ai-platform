@@ -3,9 +3,6 @@ from pathlib import Path
 import streamlit as st
 
 
-OUTPUT_DIR = Path("../backend/app/storage/outputs")
-
-
 def render_preview():
 
     if not st.session_state.completed:
@@ -49,6 +46,7 @@ def render_preview():
     st.header("📄 Published Documents")
 
     files = st.session_state.files
+    published = st.session_state.published_documents
 
     document_tabs = st.tabs(
         [
@@ -58,36 +56,18 @@ def render_preview():
         ]
     )
 
-    lesson_path = OUTPUT_DIR / files["lesson_plan"]
-    teacher_path = OUTPUT_DIR / files["teacher_guide"]
-    assessment_path = OUTPUT_DIR / files["assessment"]
 
     with document_tabs[0]:
-
-        if lesson_path.exists():
-
-            st.markdown(
-                lesson_path.read_text(
-                    encoding="utf-8"
-                )
-            )
+        st.markdown(
+            published["lesson_plan"]
+       )
 
     with document_tabs[1]:
-
-        if teacher_path.exists():
-
-            st.markdown(
-                teacher_path.read_text(
-                    encoding="utf-8"
-                )
-            )
+        st.markdown(
+            published["teacher_guide"]
+        )
 
     with document_tabs[2]:
-
-        if assessment_path.exists():
-
-            st.markdown(
-                assessment_path.read_text(
-                    encoding="utf-8"
-                )
-            )
+        st.markdown(
+            published["assessment"]
+        )

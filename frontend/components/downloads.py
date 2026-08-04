@@ -1,9 +1,5 @@
-from pathlib import Path
-
 import streamlit as st
-
-
-OUTPUT_DIR = Path("../backend/app/storage/outputs")
+from api.client import download_file
 
 
 def render_downloads():
@@ -21,41 +17,40 @@ def render_downloads():
         (
             col1,
             "📦 Teacher Package",
-            files["json"]
+            "json"
         ),
         (
             col2,
             "📘 Lesson Plan",
-            files["lesson_plan"]
+            "lesson_plan"
         ),
         (
             col3,
             "👨‍🏫 Teacher Guide",
-            files["teacher_guide"]
+            "teacher_guide"
         ),
         (
             col4,
             "📝 Assessment",
-            files["assessment"]
+            "assessment"
         )
     ]
 
-    for column, label, filename in download_items:
+    for column, label, file_type in download_items:
 
-        file_path = OUTPUT_DIR / filename
+        with column:
 
-        if file_path.exists():
+            data = download_file(
+                st.session_state.job_id,
+                file_type
+            )
 
-            with column:
-
-                with open(file_path, "rb") as f:
-
-                    st.download_button(
-                        label=label,
-                        data=f,
-                        file_name=filename,
-                        use_container_width=True
-                    )
+            st.download_button(
+                label=label,
+                data=data,
+                file_name=files[file_type],
+                use_container_width=True
+            )
 
 '''
 def render_downloads():

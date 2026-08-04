@@ -66,6 +66,8 @@ def render_generator():
 
         st.session_state.files = result["files"]
 
+        st.session_state.published_documents = result["published_documents"]
+
         st.session_state.completed = True
 
         st.session_state.processing = False
