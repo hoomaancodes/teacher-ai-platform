@@ -7,6 +7,11 @@ def render_uploader():
 
     st.subheader("📄 Upload PDF")
 
+    st.info(
+    "💡 Demo Tip: For the best experience, upload PDFs with up to 6 pages. "
+    "The app is currently hosted on a free cloud instance."
+    )
+
     uploaded_file = st.file_uploader(
         "Choose a PDF",
         type=["pdf"]
