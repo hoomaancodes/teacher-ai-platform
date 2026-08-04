@@ -61,8 +61,6 @@ def render_generator():
         result = get_result(
             st.session_state.job_id
         )
-        st.write("Result from backend:")
-        st.json(result)
 
         st.session_state.teacher_package = result["teacher_package"]
 

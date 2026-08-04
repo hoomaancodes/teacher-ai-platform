@@ -48,9 +48,6 @@ def render_preview():
     files = st.session_state.files
     published = st.session_state.published_documents
 
-    st.write("Published docs in session:")
-    st.json(published)
-
     document_tabs = st.tabs(
         [
             "Lesson Plan",
