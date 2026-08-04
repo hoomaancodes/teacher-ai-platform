@@ -57,7 +57,7 @@ padding:10px 0;
 ">
 📜&nbsp;
 अन्नदानं परं दानं विद्यादानमतः परम् ।
-अन्नेन क्षणिका तृप्ति र्यावज्जीवं च विद्यया ॥
+अन्नेन क्षणिका तृप्तिर्यावज्जीवं च विद्यया ॥
 </marquee>
 """,
     unsafe_allow_html=True,
@@ -99,7 +99,7 @@ with left:
     st.markdown("**Teacher AI Platform © 2026**")
 
 with center:
-    st.markdown("Built by **Maan Kaur**")
+    st.markdown("Developed by **Maan Kaur**")
 
 with right:
     st.markdown(
